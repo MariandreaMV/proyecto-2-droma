@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Sistema de torneos desportivos</title>
+        <title>Sport tournament system</title>
     </head>
     <body>
         

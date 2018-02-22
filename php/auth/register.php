@@ -1,49 +1,49 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title>Sistema de torneos deportivos</title>
+	<title>Sport tournament system</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 	<div class='container'>
 		<form class=''>
 			<fieldset class='content'>
-				<legend>Registro</legend>
+				<legend>Register</legend>
 				<div class='separator'>
-					<label for='name'>Nombre del Equipo: </label>
+					<label for='name'>Team's name: </label>
 					<input id='name' type='text' name='name' required>
 				</div>
 				<div class='separator'>
-					<label for='short-name'>Nombre corto: </label>
+					<label for='short-name'>Short name: </label>
 					<input id='short-name' type='text' name='short-name' required>
 				</div>	
 				<div class='separator'>
-					<label for='date'>Fecha de creacion: </label>
+					<label for='date'>Creation date : </label>
 					<input id='date' type='date' name='date' required>
 				</div>
 				<div class="separator">
-					<label for='address'>Dirección del responsable: </label>
-					<input id='address' type='text' name='address' placeholder=' Opcional' required>
+					<label for='address'>Address of the responsible: </label>
+					<input id='address' type='text' name='address' placeholder=' Optional' >
 				</div>
 				<div class="separator">
-					<label for='email'>Correo electrónico: </label>
+					<label for='email'>Email address: </label>
 					<input id='email' type='email' name='email' required>
 				</div>
 				<div class="separator">
-					<label for='website'>Sitio web: </label>
-					<input id='website' type='text' name='website' placeholder=' Opcional' required>
+					<label for='website'>Website: </label>
+					<input id='website' type='text' name='website' placeholder=' Optional' >
 				</div>
 				<hr>
 				<div class="separator">
-					<label for='username'>Nombre de usuario: </label>
+					<label for='username'>Username: </label>
 					<input id='username' type='text' name='username' required>
 				</div>
 				<div class="separator">
-					<label for='password'>Contraseña: </label>
+					<label for='password'>Password: </label>
 					<input id='password' type='password' name='password' required>
 				</div>
 				<div class="separator">
-					<button>Registrar </button>
+					<button>Register </button>
 				</div>
 			</fieldset>
 		</form>

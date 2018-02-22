@@ -1,24 +1,24 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title>Sistema de torneos deportivos</title>
+	<title>Sport tournament system</title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 	<div class='container'>
 		<form class='' method='post'>
 			<fieldset class='content'>
-				<legend>Login</legend>
+				<legend>Sign in</legend>
 				<div class="separator">
-					<label for='username'>Usuario: </label>
+					<label for='username'>Username: </label>
 					<input id='username' type='text' name='username'>
 				</div>
 				<div class="separator">
-					<label for='password'>Contraseña: </label>
+					<label for='password'>Password: </label>
 					<input id='password' type='password' name='password'>
 				</div>
 				<div class="separator">
-					<button>Ingresar al sistema </button>
+					<button>Login </button>
 				</div>
 			</fieldset>
 		</form>
