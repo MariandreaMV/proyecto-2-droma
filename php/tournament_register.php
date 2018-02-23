@@ -13,14 +13,16 @@
 
 
     function tournament_list(){
-        echo  '<option value="0"></option>';
+        echo  '<option value="0" disabled selected>Select an option</option>';
         $pdo = Database::getConnection();
         $sql ="SELECT * FROM tournaments";
         $query = $pdo->prepare($sql);
         $query->execute();
 
         while($torneo=$query->fetch(PDO::FETCH_ASSOC))
-           echo '<option value="'.$torneo['name'].'">'.$torneo['name'].'</option>';
+            if ($torneo['status']== 1) 
+                 echo '<option value="'.$torneo['name'].'">'.$torneo['name'].'</option>';
+            
     }
 
 
