@@ -65,6 +65,7 @@
 
 	if(isset($_POST["register"])){
 
+
 		$name = filter_input(INPUT_POST, 'name',FILTER_SANITIZE_STRING);
 		$email = filter_input(INPUT_POST, 'email',FILTER_SANITIZE_STRING);
 		$shortN = filter_input(INPUT_POST, 'short-name',FILTER_SANITIZE_STRING);
@@ -99,6 +100,9 @@
 			echo "<script>alert('incorrect values')</script>";
 		}
 	}
+
+
+	
  ?>
 
 
