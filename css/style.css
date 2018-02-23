@@ -11,3 +11,57 @@
 	display: block;
 	margin: .5rem;
 }
+
+
+/* 
+	Table Borders 
+*/
+.table {
+	border-collapse:collapse!important
+}
+.table td, .table th {
+	background-color:#fff!important
+}
+
+table { 
+	background-color:transparent
+}
+
+th {
+	text-align:left
+}
+.table {
+	width:80%;
+	margin: 0 auto;
+	max-width:100%;
+	margin-bottom:20px
+}
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+	padding:8px;
+	line-height:1.42857143;
+	vertical-align:top;
+	border-top:1px solid #ddd
+}
+.table>thead>tr>th {
+	vertical-align:bottom;
+	border-bottom:2px solid #ddd
+}
+.table>thead>tr:first-child>td,
+.table>thead>tr:first-child>th,
+.table>thead>tr:first-child>td,
+.table>thead>tr:first-child>th,
+.table>thead:first-child>tr:first-child>td,
+.table>thead:first-child>tr:first-child>th {
+	border-top:0
+}
+.table>tbody+tbody {
+	border-top:2px solid #ddd 
+}
+.table .table {
+	background-color:#fff
+}
