@@ -1,9 +1,34 @@
 <?php 
     session_start();
+    include_once "config/config.php";
+
     if (!$_SESSION["user"]) {
         header("location:auth/login.php");
+
     }
+
+    if (isset($_POST["register"])) {
+        
+    }
+
+
+    function tournament_list(){
+        echo  '<option value="0"></option>';
+        $pdo = Database::getConnection();
+        $sql ="SELECT * FROM tournaments";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+
+        while($torneo=$query->fetch(PDO::FETCH_ASSOC))
+           echo '<option value="'.$torneo['name'].'">'.$torneo['name'].'</option>';
+    }
+
+
     
+
+
+
+
 ?>
 
 
@@ -23,9 +48,9 @@
         			<div class="separator">
         				<label for='tournament'>Select tournament: </label>
         				<select id='tournament'>
-        					<option></option>
-        					<option></option>
-        					<option></option>
+                            <?php 
+                                tournament_list();
+                             ?>
         				</select>
         			</div>
         			<div class="separator">
@@ -40,7 +65,7 @@
         					<option>Professional</option>
         				</select>
         			</div>
-        			<button>Submit</button>
+        			<input type="submit" name="register" value="register">
         		</fieldset>
         	</form>
         </div>
