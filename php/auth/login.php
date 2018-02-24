@@ -2,9 +2,22 @@
 	session_start();
 	include_once "../config/config.php";
 
+	if (isset($_SESSION['user'])) {
+		if ($_SESSION['user']['status'] == 1) {
+			header("location:../admin/index.php");
+		} else {
+			header("location:../index.php");
+		}
+	}
+
 	function sign_in($user){
 		$_SESSION["user"] = $user;
-		header("location:../tournament_register.php");
+		if ($user['status'] == 1) {
+			$_SESSION['admin'] = true;
+			header("location:../admin/index.php");
+		} else {
+			header("location:../index.php");
+		}
 	}
 
 	if (isset($_POST["login"])) {
