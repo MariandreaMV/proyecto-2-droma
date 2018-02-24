@@ -58,9 +58,9 @@
         $query = $pdo->prepare($sql);
         $query->execute();
 
-        while($torneo=$query->fetch(PDO::FETCH_ASSOC))
-            if ($torneo['status']== 1) 
-                 echo '<option value="'.$torneo['id'].'">'.$torneo['name'].'</option>';
+        while($tournament=$query->fetch(PDO::FETCH_ASSOC))
+            if ($tournament['status']== 1) 
+                echo '<option value="'.$tournament['id'].'">'.$tournament['name'].'</option>';
             
     }
 
@@ -119,7 +119,7 @@
         				<label for='category'>Category: </label>
         				<select id='category' name ='category'>
         					<option value ="Beginner">Beginner</option>
-        					<option value = "Amateur">Amateur</option>
+        					<option value ="Amateur">Amateur</option>
         					<option value ="Professional" >Professional</option>
         				</select>
         			</div>
