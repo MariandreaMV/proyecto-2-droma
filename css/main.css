@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+
+
+/* Reset */
+
+	html, body, div, h1, h2, p, a, img, ol, ul, li, fieldset, form, label, legend, table, caption, footer, header, menu, nav, section {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+
+	nav{
+		display: block;
+	}
+
+	body {
+		line-height: 1;
+	}
+
+	ol, ul {
+		list-style: none;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+
+/* Basic */
+
+	body, input{
+		color: #fff;
+		font-family: helvetica;
+		font-size: 15pt;
+		font-weight: 300 !important;
+		letter-spacing: -0.025em;
+		line-height: 1.75em;
+	}
+
+	body {
+		background: black;
+		overflow: hidden;
+	}
+
+	a {
+		
+		border-bottom: dotted 0px;
+		color: gray;
+		outline: 0;
+		text-decoration: none;
+	}
+
+	a:hover {
+			border-color: transparent;
+	}
+
+/*----------------------------------------*/
+	#header {
+		height: 100%;
+		left: 0;
+		position: fixed;
+		text-align: center;
+		width: 100%;
+	}
+
+	#header nav {
+		
+		padding: 0 1em;
+	} 
+
+	#header h1 {
+		margin: 5em 0 0 0;
+		font-size: 3.5em;
+		font-weight: 600;
+		letter-spacing: -0.035em;
+		line-height: 1em;
+	}
+
+	#header li {
+		 float:right;
+	}
+
+	#header nav {
+		margin: 0.5em 0 0 0;
+	}
+
+	#header nav a {
+		border: 0;
+		display: block;
+		height: 40px;
+		padding: 0 10px;
+		line-height: 40px;
+	}
+
+	#header nav a:before {
+		font-size: 1.75em;
+		height: 2.5em;
+		line-height: 10em;
+		position: relative;
+		text-align: center;
+		top: 0;
+		width: 2.5em;
+	}
+
+	#header nav a:after {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 0px;
+		background: #20abe1;
+	}
+
+	#header nav a:hover {
+		font-size: 1.1em;
+		color: #fff;
+	}
+
+	#header nav a:active {
+		font-size: 0.95em;
+		background: none;
+	}
+/*-------------------------------------*/
+
+	#admin h1 {
+
+		margin: 1em 0 0 0;
+		font-size: 2.5em;
+		font-weight: 600;
+		letter-spacing: -0.035em;
+		line-height: 1em;
+	}
+
+	#admin nav a:before {
+		font-size: 1.75em;
+		height: 2.5em;
+		line-height: 10em;
+		position: relative;
+		text-align: center;
+		top: 0;
+		width: 2.5em;
+	}
+
+	#admin nav a:after {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 0px;
+		background: #20abe1;
+	}
+
+	#admin nav a:hover {
+		font-size: 1.1em;
+		color: #fff;
+	}
+
+	#admin nav a:active {
+		font-size: 0.95em;
+		background: none;
+	}
+
+	#admin footer a{
+		float:right;
+		border: 0;
+		display: block;
+		height: 40px;
+		padding: 0 10px;
+		line-height: 40px;
+	}
+
+	#admin footer a:before {
+		font-size: 1.75em;
+		height: 2.5em;
+		line-height: 10em;
+		position: relative;
+		text-align: center;
+		top: 0;
+		width: 2.5em;
+	}
+
+	#admin footer a:after {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 0px;
+		background: #20abe1;
+	}
+
+	#admin footer a:hover {
+		font-size: 1.1em;
+		color: #fff;
+	}
+
+	#admin footer a:active {
+		font-size: 0.95em;
+		background: none;
+	}
+
+/*--------------------------------------*/
