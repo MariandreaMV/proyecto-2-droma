@@ -49,7 +49,6 @@
      
     }
 
-
     function tournament_list(){
         
         echo  '<option disabled selected>Select an option</option>';
@@ -63,7 +62,6 @@
                  echo '<option value="'.$torneo['id'].'">'.$torneo['name'].'</option>';
             
     }
-
 
     function team_list(){
         
@@ -81,7 +79,6 @@
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html>

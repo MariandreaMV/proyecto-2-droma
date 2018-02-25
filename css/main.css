@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 
-
 /* Reset */
 
 	html, body, div, h1, h2, p, a, img, ol, ul, li, fieldset, form, label, legend, table, caption, footer, header, menu, nav, section {
@@ -28,7 +27,6 @@
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-
 
 /* Basic */
 
@@ -58,7 +56,6 @@
 			border-color: transparent;
 	}
 
-/*----------------------------------------*/
 	#header {
 		height: 100%;
 		left: 0;
@@ -124,7 +121,6 @@
 		font-size: 0.95em;
 		background: none;
 	}
-/*-------------------------------------*/
 
 	#admin h1 {
 
@@ -202,4 +198,3 @@
 		background: none;
 	}
 
-/*--------------------------------------*/
