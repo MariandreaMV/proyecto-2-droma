@@ -1,6 +1,9 @@
 <?php 
     include_once '../../config/config.php';
     $pdo = Database::getConnection();
+
+     if (!$_SESSION['admin'])
+        header ("Location:../../../index.php");
 ?>
 
 <!DOCTYPE html>

@@ -4,7 +4,7 @@
         if ($_SESSION['user']['status'] == 1) {
             header("location:/php/admin/index.php");
         } else {
-            header("location:/php/tournament_register.php");
+            header("location:/php/index.php");
         }
     }
 ?>
@@ -12,10 +12,18 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Sport tournament system</title>
+        <link rel="stylesheet" href="/css/main.css" />
+        <title>SPORT TOURNAMENT SYSTEM</title>
     </head>
-    <body>
-        <a href="/php/auth/login.php">Sign in</a>
-        <a href="/php/auth/register.php">Sign up</a>
+    <body> 
+        <div id="header">
+            <nav>
+                <ul>
+                    <li><a href="/php/auth/register.php">Sign up</a></li>
+                    <li><a href="/php/auth/login.php">Sign in</a></li>
+                </ul>
+             </nav>   
+            <h1>SPORTS TOURNAMENTS</h1>
+        </div>    
     </body>
 </html>

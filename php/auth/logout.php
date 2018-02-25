@@ -4,7 +4,7 @@
     if (isset($_SESSION['user'])) {
         unset($_SESSION['user']);
         unset($_SESSION['admin']);
-        header ("Location:login.php");
+        header ("Location:../../index.php");
     } else {
         header ("Location:../../index.php");
     }
