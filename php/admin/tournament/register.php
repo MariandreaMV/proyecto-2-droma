@@ -30,7 +30,7 @@
     </head>
     <body>
         <div class='container'>
-            <?php if ($_SESSION['result']): ?>
+            <?php if (isset($_SESSION['result'])): ?>
                 <div class="success">
                     Registered Successfully!!
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="separator">
                         <label for='id'>Date</label>
-                        <input id='date' name='date' type='date' required>
+                        <input id='date' name='date' type='date' min="2018-03-01" required>
                     </div>
                     <div class="separator">
                         <input class="button btn-web" type='submit' name='register' value='Register'>

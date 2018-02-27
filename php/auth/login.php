@@ -49,7 +49,7 @@
 </head>
 <body>
 	<div class='container'>
-		<?php if ($_SESSION['failure']): ?>
+		<?php if (isset($_SESSION['failure'])): ?>
 			<div class="failure">
 				Incorrect username or password
 			</div>
@@ -58,11 +58,11 @@
 			<fieldset class='content'>
 				<legend>Sign in</legend>
 				<div class="separator">
-					<label for='username'>Username: </label>
+					<label for='username'>Username</label>
 					<input id='username' type='text' name='username'>
 				</div>
 				<div class="separator">
-					<label for='password'>Password: </label>
+					<label for='password'>Password</label>
 					<input id='password' type='password' name='password'>
 				</div>
 				<div class="separator">

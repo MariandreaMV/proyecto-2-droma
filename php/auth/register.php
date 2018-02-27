@@ -107,12 +107,12 @@
 </head>
 <body>
 	<div class='container'>
-		<?php if ($_SESSION['success']): ?>
+		<?php if (isset($_SESSION['success'])): ?>
 			<div class="success">
 				Registered Successfully!!
 			</div>
 		<?php session_unset($_SESSION['success']); endif ?>
-		<?php if ($_SESSION['failure']): ?>
+		<?php if (isset($_SESSION['failure'])): ?>
 			<div class="failure">
 				Please enter the correct values :(
 			</div>

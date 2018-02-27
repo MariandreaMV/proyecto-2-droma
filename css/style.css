@@ -33,7 +33,8 @@ a {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: Helvetica
+    font-family: Helvetica;
+    border-radius: 5%;
 }
 
 .btn {
