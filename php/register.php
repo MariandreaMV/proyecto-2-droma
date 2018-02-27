@@ -1,10 +1,9 @@
-<?php 
+<?php
     session_start();
     include_once "config/config.php";
 
     if (!$_SESSION["user"]) {
         header("location:auth/login.php");
-
     }
 
     function teamExist($team_id,$category) {
@@ -12,7 +11,7 @@
 
         $query = $pdo->prepare("SELECT COUNT(id) FROM registers WHERE team_id = '$team_id' AND category='$category'");
         $query->bindValue(1, $team_id);
-        try{
+        try {
             $query->execute();
             $rows = $query->fetchColumn();
             if($rows >= 1){
@@ -20,7 +19,7 @@
             } else {
                 return false;
             }
-        }catch (PDOException $e){
+        } catch (PDOException $e) {
             die($e->getMessage());
         }
     }
@@ -28,9 +27,9 @@
     if (isset($_POST["register"])) {
 
         if (isset($_POST["tournament"]) && strlen($_POST["number"])>=1 && isset($_POST["team"]) > 0) {
-           
+
             if (!teamExist($_POST['team'],$_POST['category'])) {
-                    
+
                 $pdo = Database::getConnection();
                 $sql = "INSERT INTO registers(tournament_id,team_id,n_participants,category) VALUES (:tournament,:team_id,:n_participants,:category)";
                 $query = $pdo->prepare($sql);
@@ -40,17 +39,17 @@
                     'n_participants' => $_POST['number'],
                     'category' => $_POST['category']
                 ]);
-            }else{
-                echo "<script>alert('team already registered in this tournament')</script>";
+                $_SESSION['success'] = $result;
+            } else {
+                $_SESSION['failure'] = true;
             }
-        }else{
-            echo "incorrect values";
+        } else {
+            $_SESSION['result'] = false;
         }
-     
     }
 
     function tournament_list(){
-        
+
         echo  '<option disabled selected>Select an option</option>';
         $pdo = Database::getConnection();
         $sql ="SELECT * FROM tournaments";
@@ -58,13 +57,12 @@
         $query->execute();
 
         while($torneo=$query->fetch(PDO::FETCH_ASSOC))
-            if ($torneo['status']== 1) 
+            if ($torneo['status']== 1)
                  echo '<option value="'.$torneo['id'].'">'.$torneo['name'].'</option>';
-            
     }
 
     function team_list(){
-        
+
         echo  '<option disabled selected>Select an option</option>';
         $pdo = Database::getConnection();
         $user_id = $_SESSION["user"]['id'];
@@ -74,9 +72,7 @@
 
         while($team=$query->fetch(PDO::FETCH_ASSOC))
             echo '<option value="'.$team['id'].'">'.$team['teamname'].'</option>';
-
     }
-
 
 ?>
 
@@ -89,40 +85,62 @@
     </head>
     <body>
         <div class="container">
+            <?php if ($_SESSION['success']): ?>
+                <div class="success">
+                    Registered Successfully!!
+                </div>
+            <?php session_unset($_SESSION['success']); endif ?>
+            <?php if ($_SESSION['failure']): ?>
+                <div class="failure">
+                    Team already registered in this tournament
+                </div>
+            <?php session_unset($_SESSION['failure']); endif ?>
+            <?php if ($_SESSION['result']): ?>
+                <div class="failure">
+                    Incorrect values provided
+                </div>
+            <?php session_unset($_SESSION['result']); endif ?>
         	<form class='' method = 'post'>
         		<fieldset class='content'>
         			<legend>Tournament register</legend>
                     <div class="separator">
-                        <label for='team'>Select team: </label>
+                        <label for='team'>Select team</label>
                         <select id='team' name = 'team'>
-                            <?php 
+                            <?php
                                 team_list();
                              ?>
                         </select>
                     </div>
         			<div class="separator">
-        				<label for='tournament'>Select tournament: </label>
+        				<label for='tournament'>Select tournament</label>
         				<select id='tournament' name = 'tournament'>
-                            <?php 
+                            <?php
                                 tournament_list();
                              ?>
         				</select>
         			</div>
         			<div class="separator">
-        				<label for=''>Number of participants: </label>
+        				<label for=''>Number of participants</label>
         				<input type='number' min='1' name="number" required>
         			</div>
         			<div class="separator">
-        				<label for='category'>Category: </label>
+        				<label for='category'>Category</label>
         				<select id='category' name ='category'>
-        					<option value ="Beginner">Beginner</option>
-        					<option value = "Amateur">Amateur</option>
-        					<option value ="Professional" >Professional</option>
+        					<option value="Beginner">Beginner</option>
+        					<option value="Amateur">Amateur</option>
+        					<option value="Professional" >Professional</option>
         				</select>
         			</div>
-        			<input type="submit" name="register" value="register">
+        			<input class='button btn-web' type="submit" name="register" value="register">
         		</fieldset>
         	</form>
+            <div class="separator">
+                <?php if ($_SESSION['admin']):?>
+                    <a class="button btn-web" href='/php/admin/index.php'>Back</a>
+                <?php else: ?>
+                    <a class="button btn-web" href='/php/index.php'>Back</a>
+                <?php endif ?>
+            </div>
         </div>
     </body>
 </html>
