@@ -89,17 +89,17 @@
                 <div class="success">
                     Registered Successfully!!
                 </div>
-            <?php session_unset($_SESSION['success']); endif ?>
+            <?php unset($_SESSION['success']); endif ?>
             <?php if (isset($_SESSION['failure'])): ?>
                 <div class="failure">
                     Team already registered in this tournament
                 </div>
-            <?php session_unset($_SESSION['failure']); endif ?>
+            <?php unset($_SESSION['failure']); endif ?>
             <?php if (isset($_SESSION['result'])): ?>
                 <div class="failure">
                     Incorrect values provided
                 </div>
-            <?php session_unset($_SESSION['result']); endif ?>
+            <?php unset($_SESSION['result']); endif ?>
         	<form class='' method = 'post'>
         		<fieldset class='content'>
         			<legend>Tournament register</legend>

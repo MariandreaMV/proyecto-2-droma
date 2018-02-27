@@ -34,7 +34,7 @@
                 <div class="success">
                     Registered Successfully!!
                 </div>
-            <?php session_unset($_SESSION['result']); endif ?>
+            <?php unset($_SESSION['result']); endif ?>
             <form method='post'>
                 <fieldset class='content'>
                     <legend>Tournament register</legend>
