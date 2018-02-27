@@ -1,9 +1,8 @@
-<?php 
+<?php
     session_start();
     include_once '../../config/config.php';
-    if (!isset($_SESSION['user'])) {
-        header("location:/php/auth/login.php");
-    }
+    if (!$_SESSION['admin'])
+        header ("Location:../../../index.php");
 
     if (isset($_POST['register'])) {
         if (isset($_POST["tournament"]) && strlen($_POST["number"])>=1 && isset($_POST["team"]) > 0) {
@@ -18,12 +17,13 @@
                 'participants' => $_POST['number'],
                 'category' => $_POST['category']
             ]);
-            header("location:/php/admin/list.php");
+            $_SESSION['success'] = true;
+            header("location:/php/admin/team/list.php");
         }
     }
 
     function tournament_list(){
-        
+
         echo  '<option disabled selected>Select an option</option>';
         $pdo = Database::getConnection();
         $sql ="SELECT * FROM tournaments";
@@ -31,14 +31,14 @@
         $query->execute();
 
         while($tournament=$query->fetch(PDO::FETCH_ASSOC))
-            if ($tournament['status']== 1) 
+            if ($tournament['status']== 1)
                 echo '<option value="'.$tournament['id'].'" '.  (($tournament['name'] == $_GET['to'])?'selected="selected"':"")  .'>'.$tournament['name'].'</option>';
-            
+
     }
 
 
     function team_list(){
-        
+
         echo '<option disabled>Select an option</option>';
         $user_id = $_SESSION["user"]['id'];
         $pdo = Database::getConnection();
@@ -97,7 +97,7 @@
                     <div class="separator">
                         <label for='team'>Select team: </label>
                         <select id='team' name='team'>
-                            <?php 
+                            <?php
                                 team_list();
                              ?>
                         </select>
@@ -105,7 +105,7 @@
                     <div class="separator">
                         <label for='tournament'>Select tournament: </label>
                         <select id='tournament' name='tournament'>
-                            <?php 
+                            <?php
                                 tournament_list();
                              ?>
                         </select>
@@ -119,17 +119,17 @@
                         <select id='category' name='category'>
                             <?php if (teamExist($_GET['tid'], 'Beginner')): ?>
                                     <?php if ($_GET['ca'] == 'Beginner'): ?>
-                                        <option value="Beginner" <?php 
+                                        <option value="Beginner" <?php
                                             if ($_GET['ca'] == 'Beginner')
                                                 echo "selected";
                                         ?>>Beginner</option>
                                     <?php endif; ?>
                             <?php else: ?>
-                                <option value="Beginner">Beginner</option>                                        
+                                <option value="Beginner">Beginner</option>
                             <?php endif; ?>
                             <?php if (teamExist($_GET['tid'], 'Amateur')): ?>
-                                    <?php if ($_GET['ca'] == 'Amateur'): ?>                              
-                                        <option value="Amateur"  <?php 
+                                    <?php if ($_GET['ca'] == 'Amateur'): ?>
+                                        <option value="Amateur"  <?php
                                             if ($_GET['ca'] == 'Amateur')
                                                 echo "selected";
                                         ?>>Amateur</option>
@@ -137,9 +137,9 @@
                             <?php else: ?>
                                 <option value="Amateur">Amateur</option>
                             <?php endif; ?>
-                            <?php if (teamExist($_GET['tid'], 'Professional')): ?> 
-                                    <?php if ($_GET['ca'] == 'Professional'): ?>                              
-                                        <option value="Professional" <?php 
+                            <?php if (teamExist($_GET['tid'], 'Professional')): ?>
+                                    <?php if ($_GET['ca'] == 'Professional'): ?>
+                                        <option value="Professional" <?php
                                             if ($_GET['ca'] == 'Professional')
                                                 echo "selected";
                                         ?>>Professional</option>
@@ -153,7 +153,7 @@
                 </fieldset>
             </form>
             <div class="separator">
-               <a class="button button-align" href=''>Back</a>
+               <a class="button btn-web" href='/php/admin/team/list.php'>Back</a>
             </div>
         </div>
     </body>

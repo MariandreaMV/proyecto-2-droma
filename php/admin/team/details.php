@@ -1,8 +1,9 @@
-<?php 
+<?php
+    session_start();
     include_once '../../config/config.php';
     $pdo = Database::getConnection();
 
-     if (!$_SESSION['admin'])
+    if (!$_SESSION['admin'])
         header ("Location:../../../index.php");
 ?>
 
@@ -33,7 +34,7 @@
 	                while ($current = $query->fetch (PDO::FETCH_ASSOC)):
 	            ?>
 	                <tr>
-                        <?php 
+                        <?php
                             $user_id = $current['user_id'];
                             $sql = "SELECT username fROM users where id = '$user_id' LIMIT 1";
                             $query = $pdo->prepare ($sql);
@@ -51,7 +52,7 @@
 	            <?php endwhile ?>
             </table>
             <div class="separator">
-               <a class="button button-align" href=''>Back</a>
+               <a class="button btn-web" href='/php/admin/team/list.php'>Back</a>
             </div>
         </div>
     </body>
