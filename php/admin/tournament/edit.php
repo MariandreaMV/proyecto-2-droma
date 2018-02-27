@@ -1,7 +1,10 @@
-<?php 
+<?php
     session_start();
     include_once '../../config/config.php';
     $pdo = Database::getConnection();
+
+    if (!$_SESSION['admin'])
+        header ("Location:../../../index.php");
 
     if (isset($_POST['register'])) {
         $username = filter_input(INPUT_POST, 'name',FILTER_SANITIZE_STRING);
@@ -48,15 +51,15 @@
                 <fieldset class='content'>
                     <legend>Tournament edit</legend>
                     <div class="separator">
-                        <label for='name'>Tournament name: </label>
+                        <label for='name'>Tournament name</label>
                         <input id='name' name='name' type='text' value='<?= $row['name'] ?>' required>
                     </div>
                     <div class="separator">
-                        <label for='date'>Date: </label>
+                        <label for='date'>Date</label>
                         <input id='date' name='date' type='date' value='<?= $row['date'] ?>' required>
                     </div>
                     <div class="separator">
-                        <label for='status'>Status: </label>
+                        <label for='status'>Status</label>
                         <select name='status'>
                             <option value='1' <?= (($row['status']==1)?'selected':'') ?>>Available</option>
                             <option value='0' <?= (($row['status']==0)?'selected':'') ?>>Not available</option>
@@ -64,12 +67,12 @@
                     </div>
                     <input type='hidden' name='id' value='<?= $row['id'] ?>'>
                     <div class="separator">
-                        <input type='submit' name='register' value='register'>
+                        <input class="button btn-web" type='submit' name='register' value='register'>
                     </div>
                 </fieldset>
             </form>
             <div class="separator">
-               <a class="button button-align" href=''>Back</a>
+               <a class="button btn-web" href='/php/admin/tournament/list.php'>Back</a>
             </div>
         </div>
     </body>
