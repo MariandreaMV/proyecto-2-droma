@@ -1,35 +1,27 @@
-
-body,legend,label{
+body, legend, label{
     color: white;
-   background-color: black;
+    background-color: black;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white
 }
 
 .content  {
-
     text-align: center;
 }
 
 .container {
-    margin: 10em auto;
+    margin: 5em auto;
     line-height: 2em;
     width: 40%;
-   
-
-}
-
-.table-container {
-/*    width: 100%;
-    margin: 0 auto;*/
 }
 
 .separator {
     display: block;
     margin: .5em
-}
-
-.button-align {
-    /*margin-left: 8em*/
-    /*width: 5%*/
 }
 
 .button {
@@ -44,22 +36,33 @@ body,legend,label{
     font-family: Helvetica
 }
 
-/* 
-    Table Borders 
-*/
+.btn {
+    background-color: #13262d!important;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Helvetica;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s
+}
 
 .table {
     margin: 0 auto;
-    max-width:100%;
-    margin-bottom:20px
+    max-width: 100%;
+    margin-bottom: 20px
 }
 
-.table>tbody>tr>td, 
+.table>tbody>tr>td,
 .table>tbody>tr>th {
-    padding:8px;
-    line-height:1.42857143;
-    vertical-align:top;
-    border-top:1px solid #ddd
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd
 }
 
 #table-custom {
@@ -70,23 +73,122 @@ body,legend,label{
 }
 
 #table-custom td, #table-custom th {
-    border: 1px solid #ddd;
+    border: 1px solid #192428;
     padding: 8px
 }
 
 #table-custom tr:nth-child(even) {
-    background-color: #f2f2f2
+    background-color: #2d3f47
 }
 
 #table-custom tr:hover {
-    background-color: #ddd
+    background-color: gray
 }
 
 #table-custom th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #990099;
+    background-color: #061e26;
     color: white
 }
 
+input[type=text], input[type=email], input[type=date], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    background-color: #2d3f47;
+    border: 3px solid #2d3f47;
+    color: gray
+}
+
+input[type=text]:hover, input[type=email]:hover, input[type=date]:hover, input[type=password]:hover, input[type=password]:hover {
+    border: 3px solid #555
+}
+
+.btn-web {
+    background-color: #2d3f47;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s
+}
+
+.btn-web:hover  {
+    background-color: #192428;
+    color: white
+}
+
+select {
+    width: 100%;
+    color: gray;
+    border: 1px solid #111;
+    background: transparent;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #2d3f47
+}
+
+select::-ms-expand {
+    display: none
+}
+
+@media screen and (min-width:0\0) {
+    select {
+        background: none\9;
+        padding: 5px\9;
+    }
+}
+
+fieldset {
+    border: 1px solid #061e26;
+    border-radius: 5%
+}
+
+legend {
+    padding: 0.2em 0.5em;
+    border: 1px solid #061e26;
+    border-radius: 5%;
+    color: white;
+    font-size: 90%;
+    text-align: right
+}
+
+.logout {
+    margin: 2em
+}
+
+.credits {
+    color: gray;
+    font-size: .5em;
+    line-height: 150%;
+    display: block
+}
+
+.user {
+    padding-left: 2em
+}
+
+.user:hover {
+    color: darkgray
+}
+
+h3:hover {
+    color: darkgray
+}
+
+footer .credits {
+    float: left!important
+}
+
+.success, .failure {
+    text-align: center
+}
+
+.success {
+    color: #2ECC40
+}
+
+.failure {
+    color: #FF4136
+}
