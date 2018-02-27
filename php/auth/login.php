@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	include_once "../config/config.php";
 
@@ -10,7 +10,7 @@
 		}
 	}
 
-	function sign_in($user){
+	function sign_in($user) {
 		$_SESSION["user"] = $user;
 		if ($user['status'] == 1) {
 			$_SESSION['admin'] = true;
@@ -21,32 +21,25 @@
 	}
 
 	if (isset($_POST["login"])) {
-		
+
 		$username = filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING);
 		$password = md5(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING));
 
 		$pdo = Database::getConnection();
-		$sql ="SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+		$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 		$query = $pdo->prepare($sql);
-		
+
 		try {
 			$query->execute();
 			$user =  $query->fetch(PDO::FETCH_ASSOC);
 			if ($user) {
-				sign_in($user);	
-			}else{
-				echo "incorrect user or pass";
+				sign_in($user);
+			} else {
+				$_SESSION['failure'] = true;
 			}
-				
-		} catch (Exception $e) {
-			
-		}
-
+		} catch (Exception $e) {}
 	}
-
 ?>
-
-
 
 <html>
 <head>
@@ -56,6 +49,11 @@
 </head>
 <body>
 	<div class='container'>
+		<?php if ($_SESSION['failure']): ?>
+			<div class="failure">
+				Incorrect username or password
+			</div>
+		<?php session_unset($_SESSION['failure']); endif ?>
 		<form class='' method='post'>
 			<fieldset class='content'>
 				<legend>Sign in</legend>
@@ -68,10 +66,13 @@
 					<input id='password' type='password' name='password'>
 				</div>
 				<div class="separator">
-					<input type="submit" name="login" value="login">
+					<input class='button btn-web' type="submit" name="login" value="Login">
 				</div>
 			</fieldset>
 		</form>
+		<div class="separator">
+			<a class="button btn-web" href="/">Back</a>
+		</div>
 	</div>
 </body>
 </html>
