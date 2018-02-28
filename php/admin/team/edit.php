@@ -149,7 +149,7 @@
                             <?php endif; ?>
                         </select>
                     </div>
-                    <input type="submit" name="register" value="register">
+                    <input class="button btn-web" type="submit" name="register" value="register">
                 </fieldset>
             </form>
             <div class="separator">
