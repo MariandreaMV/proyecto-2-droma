@@ -10,13 +10,15 @@ a {
 }
 
 .content  {
-    text-align: center;
+    text-align: center
 }
 
 .container {
     margin: 5em auto;
     line-height: 2em;
     width: 40%;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s
 }
 
 .separator {
@@ -34,7 +36,7 @@ a {
     display: inline-block;
     font-size: 16px;
     font-family: Helvetica;
-    border-radius: 5%;
+    border-radius: 5%
 }
 
 .btn {

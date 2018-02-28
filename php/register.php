@@ -135,7 +135,7 @@
         		</fieldset>
         	</form>
             <div class="separator">
-                <?php if ($_SESSION['admin']):?>
+                <?php if (isset($_SESSION['admin'])):?>
                     <a class="button btn-web" href='/php/admin/index.php'>Back</a>
                 <?php else: ?>
                     <a class="button btn-web" href='/php/index.php'>Back</a>
